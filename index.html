@@ -438,11 +438,49 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            animation: audioPulse 3s ease-in-out infinite, audioShake 4s ease-in-out infinite;
+        }
+
+        @keyframes audioPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(212, 165, 116, 0);
+            }
+        }
+
+        @keyframes audioShake {
+            0%, 80%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            82% {
+                transform: rotate(-12deg) scale(1.1);
+            }
+            84% {
+                transform: rotate(12deg) scale(1.1);
+            }
+            86% {
+                transform: rotate(-12deg) scale(1.1);
+            }
+            88% {
+                transform: rotate(12deg) scale(1.1);
+            }
+            90% {
+                transform: rotate(-8deg) scale(1.05);
+            }
+            92% {
+                transform: rotate(8deg) scale(1.05);
+            }
+            94% {
+                transform: rotate(0deg) scale(1);
+            }
         }
 
         .audio-btn:hover {
             background: var(--warm-gold);
-            transform: scale(1.1);
+            transform: scale(1.15);
+            animation: none;
         }
 
         .audio-btn svg {
