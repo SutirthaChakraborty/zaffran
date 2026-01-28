@@ -7,7 +7,7 @@
 
 ## 🌐 Live Website
 
-### **[Visit Zaffran Restaurant →](https://sutirthachakraborty.github.io/zaffran/zaffran-restaurant.html)**
+### **[Visit Zaffran Restaurant →](https://sutirthachakraborty.github.io/zaffran/)**
 
 ---
 
