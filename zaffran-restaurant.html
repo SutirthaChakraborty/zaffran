@@ -1,0 +1,2667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaffran Restaurant - Authentic Indian Cuisine in Edenderry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lora:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2d5016;
+            --light-green: #3d6b1f;
+            --accent-gold: #d4a574;
+            --warm-gold: #c9963e;
+            --cream: #f8f5f0;
+            --dark-text: #1a1a1a;
+            --light-text: #ffffff;
+            --overlay: rgba(45, 80, 22, 0.95);
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Decorative Border Pattern */
+        .decorative-border {
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--accent-gold) 0px,
+                var(--accent-gold) 20px,
+                var(--primary-green) 20px,
+                var(--primary-green) 25px
+            );
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--overlay);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--light-text);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(45, 80, 22, 0.85) 0%,
+                rgba(61, 107, 31, 0.75) 50%,
+                rgba(26, 26, 26, 0.7) 100%
+            );
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--cream), transparent);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--light-text);
+            z-index: 1;
+            padding: 2rem;
+            animation: fadeInUp 1s ease, float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px var(--shadow), 0 0 40px rgba(212, 165, 116, 0.3);
+            background: linear-gradient(135deg, var(--light-text), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        .hero .address {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--dark-text);
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--warm-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--light-text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-text);
+            color: var(--primary-green);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--light-text);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator a:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--accent-gold);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Floating Call Button */
+        .floating-call-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.5);
+            cursor: pointer;
+            z-index: 999;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .floating-call-btn:hover {
+            transform: scale(1.1);
+            background: var(--warm-gold);
+        }
+
+        .floating-call-btn svg {
+            width: 35px;
+            height: 35px;
+            fill: var(--dark-text);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(212, 165, 116, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(212, 165, 116, 0.8), 0 0 0 15px rgba(212, 165, 116, 0.1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        #specials {
+            position: relative;
+        }
+
+        #specials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-green);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        /* Specials */
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .special-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .special-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-gold);
+        }
+
+        .special-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            padding: 2rem;
+            text-align: center;
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .special-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .special-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .special-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin: 1rem 0;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-content {
+            padding: 2rem;
+        }
+
+        .special-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .special-content li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .special-content li:hover {
+            transform: translateX(5px);
+        }
+
+        .special-content li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .special-content li:hover::before {
+            transform: rotate(180deg);
+        }
+
+        /* Menu Section - Compact Layout */
+        #menu {
+            padding: 4rem 2rem;
+        }
+
+        .menu-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            background: var(--cream);
+            padding: 1rem 0;
+            border-radius: 15px;
+        }
+
+        .menu-nav-btn {
+            padding: 0.5rem 1.2rem;
+            border: 2px solid var(--primary-green);
+            background: transparent;
+            color: var(--primary-green);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-nav-btn:hover,
+        .menu-nav-btn.active {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .menu-category {
+            margin-bottom: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(45, 80, 22, 0.3);
+        }
+
+        .category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: white;
+            margin: 0;
+            padding: 0;
+            background: none;
+            border: none;
+        }
+
+        .category-toggle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .category-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+
+        .category-header.collapsed .category-toggle svg {
+            transform: rotate(-90deg);
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 0.8rem;
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+        }
+
+        .menu-items.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+            border-left: 3px solid transparent;
+        }
+
+        .menu-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--accent-gold);
+        }
+
+        .menu-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .menu-item-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 0.2rem;
+            font-family: 'Lora', serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .menu-item-description {
+            font-size: 0.75rem;
+            color: #888;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .menu-item-allergens {
+            display: none;
+        }
+
+        .menu-item:hover .menu-item-allergens {
+            display: block;
+            font-size: 0.7rem;
+            color: #aaa;
+            margin-top: 0.2rem;
+        }
+
+        .menu-item:hover .menu-item-description {
+            -webkit-line-clamp: 2;
+        }
+
+        .menu-item-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .spicy-indicator {
+            color: #ff4444;
+            font-size: 0.9rem;
+            margin-left: 0.3rem;
+        }
+
+        /* Quick View Modal */
+        .menu-item-expand {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--cream);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .menu-item:hover .menu-item-expand {
+            opacity: 1;
+        }
+
+        .menu-item-expand svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--primary-green);
+        }
+
+        /* View toggle */
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .view-toggle button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-toggle button.active {
+            background: var(--accent-gold);
+            color: var(--dark-text);
+        }
+
+        /* Compact list view */
+        .menu-items.list-view {
+            grid-template-columns: 1fr;
+        }
+
+        .menu-items.list-view .menu-item {
+            padding: 0.6rem 1rem;
+        }
+
+        .menu-items.list-view .menu-item-description {
+            display: none;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(180deg, var(--cream) 0%, #e8e4df 50%, var(--cream) 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, var(--cream), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .video-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--cream), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .video-section .section-title {
+            color: var(--primary-green);
+            position: relative;
+            z-index: 2;
+            padding: 0 2rem;
+        }
+
+        .video-section .section-title::after {
+            background: var(--accent-gold);
+        }
+
+        .video-gallery-wrapper {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .video-gallery {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 4rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .video-gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .video-card {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 533px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            position: relative;
+            scroll-snap-align: center;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: var(--dark-text);
+        }
+
+        .video-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .video-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-card:hover video {
+            transform: scale(1.1);
+        }
+
+        .video-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem 1.5rem 1.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .video-card-overlay {
+            opacity: 1;
+        }
+
+        .video-card-overlay h4 {
+            color: var(--light-text);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-card-overlay p {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--primary-green);
+            border: none;
+            border-radius: 50%;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-nav:hover {
+            background: var(--accent-gold);
+            color: var(--dark-text);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-nav.prev {
+            left: 20px;
+        }
+
+        .gallery-nav.next {
+            right: 20px;
+        }
+
+        /* Featured Video */
+        .featured-video-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .featured-video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .featured-video-content {
+            color: var(--light-text);
+        }
+
+        .featured-video-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .featured-video-content h3 span {
+            color: var(--accent-gold);
+        }
+
+        .featured-video-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .featured-video-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .featured-video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Parallax Section Divider */
+        .parallax-divider {
+            height: 400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax-divider::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(45, 80, 22, 0.7);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--light-text);
+            padding: 2rem;
+        }
+
+        .parallax-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .parallax-content p {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+        }
+
+        /* Opening Hours */
+        .hours-section {
+            background: linear-gradient(180deg, var(--cream) 0%, white 50%, var(--cream) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hours-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+        }
+
+        .hours-day {
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hours-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .hours-day:hover::before {
+            transform: scaleX(1);
+        }
+
+        .hours-day:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .hours-day strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hours-day span {
+            font-size: 1rem;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        .closed {
+            color: #c0392b !important;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            color: var(--light-text);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact-section .section-title {
+            color: var(--light-text);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-item svg {
+            width: 50px;
+            height: 50px;
+            fill: var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover svg {
+            transform: scale(1.1);
+        }
+
+        .contact-item a, .contact-item p {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, var(--dark-text) 0%, #0a0a0a 100%);
+            color: var(--light-text);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold), var(--primary-green));
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--warm-gold);
+        }
+
+        .allergen-notice {
+            background: rgba(212, 165, 116, 0.15);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .allergen-notice h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+
+        .allergen-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.3rem;
+            text-align: left;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .allergen-list li {
+            padding: 0.2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .featured-video-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .featured-video-content {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--overlay);
+                width: 100%;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .specials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .floating-call-btn {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-call-btn svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .video-card {
+                width: 260px;
+                height: 462px;
+            }
+
+            .video-gallery {
+                padding: 2rem;
+            }
+
+            .gallery-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .gallery-nav.prev {
+                left: 10px;
+            }
+
+            .gallery-nav.next {
+                right: 10px;
+            }
+
+            .parallax-divider {
+                height: 300px;
+                background-attachment: scroll;
+            }
+
+            .featured-video-content h3 {
+                font-size: 2rem;
+            }
+
+            /* Compact Menu Mobile */
+            .menu-nav {
+                padding: 0.5rem;
+                gap: 0.3rem;
+                top: 70px;
+            }
+
+            .menu-nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-item {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .menu-item-name {
+                font-size: 0.9rem;
+            }
+
+            .menu-item-price {
+                font-size: 0.9rem;
+            }
+
+            .category-title {
+                font-size: 1.2rem;
+            }
+
+            .category-header {
+                padding: 0.8rem 1rem;
+            }
+
+            .view-toggle {
+                display: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative Top Border -->
+    <div class="decorative-border"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">Zaffran<span>.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#specials">Specials</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#video">Gallery</a></li>
+                <li><a href="#hours">Hours</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="videos/5834304-uhd_3840_2160_24fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Zaffran Restaurant</h1>
+            <p class="tagline">Authentic Indian Cuisine in the Heart of Edenderry</p>
+            <p class="address">44 JKL Street, Edenderry, Co Offaly</p>
+            <div class="cta-buttons">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="tel:0469738759" class="btn btn-secondary">Call Now</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#specials">
+                <span>Scroll</span>
+                <svg viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Specials Section -->
+    <section id="specials" class="fade-in">
+        <h2 class="section-title">Our Special Offers</h2>
+        <div class="specials-grid">
+            <div class="special-card">
+                <div class="special-header">
+                    <h3>Friday Special</h3>
+                    <div class="special-price">€35.99</div>
+                    <p>For 2 People</p>
+                </div>
+                <div class="special-content">
+                    <p><strong>4 Course Meal</strong></p>
+                    <ul>
+                        <li>Any Starters from our menu</li>
+                        <li>Main Course</li>
+                        <li>Dessert</li>
+                        <li>Tea or Coffee</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <em>Table only. Terms & Conditions apply</em>
+                    </p>
+                </div>
+            </div>
+
+            <div class="special-card">
+                <div class="special-header">
+                    <h3>Sunday Special</h3>
+                    <div class="special-price">€16.50</div>
+                    <p>Per Person</p>
+                </div>
+                <div class="special-content">
+                    <p><strong>1:00 to 10:00 PM</strong></p>
+                    <ul>
+                        <li>Starters</li>
+                        <li>Mains</li>
+                        <li>Tea or Coffee</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <em>Under 10 years: €8.95<br>Table only</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="fade-in">
+        <h2 class="section-title">Our Menu</h2>
+
+        <!-- Quick Navigation -->
+        <nav class="menu-nav">
+            <button class="menu-nav-btn active" data-category="all">All</button>
+            <button class="menu-nav-btn" data-category="appetisers">Appetisers</button>
+            <button class="menu-nav-btn" data-category="chef">Chef's</button>
+            <button class="menu-nav-btn" data-category="tandoori">Tandoori</button>
+            <button class="menu-nav-btn" data-category="chicken">Chicken</button>
+            <button class="menu-nav-btn" data-category="lamb">Lamb</button>
+            <button class="menu-nav-btn" data-category="seafood">Seafood</button>
+            <button class="menu-nav-btn" data-category="biryani">Biryani</button>
+            <button class="menu-nav-btn" data-category="vegetarian">Vegetarian</button>
+            <button class="menu-nav-btn" data-category="beef">Beef</button>
+            <button class="menu-nav-btn" data-category="sides">Sides</button>
+        </nav>
+
+        <!-- View Toggle -->
+        <div class="view-toggle">
+            <button class="active" data-view="grid">Grid View</button>
+            <button data-view="list">List View</button>
+        </div>
+
+        <!-- Appetizers -->
+        <div class="menu-category" data-category="appetisers">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Appetisers</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Samosa (Veg or Meat)</div>
+                        <div class="menu-item-description">Triangular shaped savoury delight filled with light pastry and stuffed with a spiced selection of fresh vegetables.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 4, 7, 12</div>
+                    </div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Onion Bhajee (2 pieces)</div>
+                        <div class="menu-item-description">A delicious preparation of finely sliced onions and ground lentils, shaped in a rusty cookie stimulator.</div>
+                        <div class="menu-item-allergens">Contains: 2, 3, 7</div>
+                    </div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Vegetable Mix Platter</div>
+                        <div class="menu-item-description">An assortment of vegetables.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 2, 3, 7</div>
+                    </div>
+                    <div class="menu-item-price">€7.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Vegetable Pakora</div>
+                        <div class="menu-item-description">Finely chopped vegetables deep fried in a mildly spiced batter.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 2, 3, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Pakora</div>
+                        <div class="menu-item-description">Chicken tikka marinated in gram flour, deep fried.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 9, 10</div>
+                    </div>
+                    <div class="menu-item-price">€6.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Prawn Pakora (5 pieces)</div>
+                        <div class="menu-item-description">A cherished starter from the royal kitchen, deliciously spiced prawns firmly deep fried.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 4, 9, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€6.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Sashlick Kebab</div>
+                        <div class="menu-item-description">Diced breast of chicken marinated in mild spices, cooked in a clay oven with onions, tomatoes, green peppers and oven roasted.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 4, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€6.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Tikka</div>
+                        <div class="menu-item-description">Tender pieces of breast of chicken marinated in yogurt, ginger, garlic, cooked in a clay oven and served sizzling hot.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€6.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tandoori Chicken</div>
+                        <div class="menu-item-description">Spring chicken marinated with Indian herbs, prepared in yogurt.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 Almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€6.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Shish Kebab</div>
+                        <div class="menu-item-description">Minced lamb rolled on a skewer, flavoured with Indian herbs & cooked in a clay oven.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 10</div>
+                    </div>
+                    <div class="menu-item-price">€6.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tandoori Jumbo Prawn</div>
+                        <div class="menu-item-description">2 jumbo prawn marinated with mild spices, cooked in a clay oven.</div>
+                        <div class="menu-item-allergens">Contains: 4, 7, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€7.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Mixed Meat Platter for 1</div>
+                        <div class="menu-item-description">Combination of tandoori specialities, ideal for those who want to try the most popular Indian starter dish.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€7.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Freshly Tossed Salad</div>
+                        <div class="menu-item-description">Served with Italian and Caesar dressing on the side.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 7</div>
+                    </div>
+                    <div class="menu-item-price">€5.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Vegetable Spring Roll</div>
+                        <div class="menu-item-description">Mildly spiced, made with light pastry and stuffed with a selection of fresh vegetables.</div>
+                        <div class="menu-item-allergens">Contains 1 wheat, 2, 3, 7</div>
+                    </div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Homemade Garlic Bread</div>
+                        <div class="menu-item-allergens">Contains: 1wheat, 3, 7</div>
+                    </div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Garlic Bread with Cheese</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 7</div>
+                    </div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Wings</div>
+                        <div class="menu-item-description">Starter €6.50 | Main €10.95</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 9, 10</div>
+                    </div>
+                    <div class="menu-item-price">€6.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Deep Fried Garlic Mushrooms</div>
+                        <div class="menu-item-description">Served with our own garlic sauce on the side.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 9, 10</div>
+                    </div>
+                    <div class="menu-item-price">€5.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Goujons Southern Fried</div>
+                        <div class="menu-item-description">Deep fried chicken goujons with garlic dip on the side.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 9, 10</div>
+                    </div>
+                    <div class="menu-item-price">Starter €6.50 | Main €12.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chef Recommends -->
+        <div class="menu-category" data-category="chef">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Chef Recommends</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Pasanda</div>
+                        <div class="menu-item-description">Lean pieces of chicken or lamb cooked with almonds, pistachio, coconut, cocktails & sultanas in a mild creamy sauce.</div>
+                        <div class="menu-item-allergens">Contains: 5, 7, 8 almond powder</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Korma</div>
+                        <div class="menu-item-description">Chicken or lamb mildly spiced with a touch of freshness, fresh cream seasoning, onions & nuts.</div>
+                        <div class="menu-item-allergens">Contains: 5, 7, 8 almond powder</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Buttered Chicken (Makhani)</div>
+                        <div class="menu-item-description">Tandoori chicken cooked in butter sauce, tomatoes and fresh cream, topped with nuts.</div>
+                        <div class="menu-item-allergens">Contains: 5, 7, 8 almond powder</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Tikka Masala</div>
+                        <div class="menu-item-description">Barbeque chunks of chicken cooked in a creamy tandoori sauce, with mild herbs and spices.</div>
+                        <div class="menu-item-allergens">Contains: 5, 7, 8 almond powder</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Patala</div>
+                        <div class="menu-item-description">Chicken cooked with special tomato & creamy sauce.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tandoori Jumbo Prawn Masala (long tray)</div>
+                        <div class="menu-item-description">Jumbo Prawns marinated in yogurt and mild spice, cooked in a clay oven and gently cooked in a mild creamy sauce, topped with almonds.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 4, 5, 7, 8 almond powder, 10 of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€16.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Murgi Masala</div>
+                        <div class="menu-item-description">This is a very special dish from Indian cuisine. Half of a spring chicken, stuffed with diced lamb, egg & tomatoes. Cooked with tempting sticky sauce with yogurt.</div>
+                        <div class="menu-item-allergens">Contains: 5, 7, 8 almond powder</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tandoori Specials -->
+        <div class="menu-category" data-category="tandoori">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Tandoori Specials</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tandoori Chicken</div>
+                        <div class="menu-item-description">On the bone baby chicken marinated with Indian spices & herbs with yogurt, cooked in a clay oven.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Tikka</div>
+                        <div class="menu-item-description">Diced breast of chicken marinated with yogurt, ginger & garlic, cooked in a clay oven and sizzling hot.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Sashlick Kebab</div>
+                        <div class="menu-item-description">Diced breast of chicken marinated with mild spices, cooked in a clay oven with onions, tomatoes, green peppers and sizzling hot in a tandoori sauce.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 4, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tandoori King Prawn</div>
+                        <div class="menu-item-description">2 large prawns marinated with mild spices, cooked in a clay oven and served with salad.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 4, 7 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€16.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Special Tandoori Mix</div>
+                        <div class="menu-item-description">A combination of tandoori chicken, chicken tikka, lamb tikka & king prawn.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 4, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€16.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chicken Specials -->
+        <div class="menu-category" data-category="chicken">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Chicken Specials</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Balti (On or off Josh)</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Garlic Chicken Chilli Masala <span class="spicy-indicator">🌶️🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Sag Chicken</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Bhuna</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Karoi Chicken</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Tikka Bhuna</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Madras <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Dansak <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Jai Frezi <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Vindaloo <span class="spicy-indicator">🌶️🌶️🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Curry</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.75</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lamb Specials -->
+        <div class="menu-category" data-category="lamb">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Lamb Specials</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Rogan Josh</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Bhuna</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Sag Lamb</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Dansak <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Jai Frezi <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Chilli Masala <span class="spicy-indicator">🌶️🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Vindaloo <span class="spicy-indicator">🌶️🌶️🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Zaffran Special Lamb Curry <span class="spicy-indicator">🌶️🌶️🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Madras <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seafood Specials -->
+        <div class="menu-category" data-category="seafood">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Seafood Specials</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Zaffran Special</div>
+                        <div class="menu-item-description">King prawns marinated in yogurt, ginger, garlic and Indian spices, served with salad.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 4, 5, 7, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€14.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Prawn Bhuna</div>
+                        <div class="menu-item-description">Prawns with spring onions & tomatoes in a medium dry thick sticky sauce.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 4, 5, 7, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€14.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Prawn Jal Frezi <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-description">Prawns in a fairly hot sauce with fresh ginger, peppers, tomatoes & onions.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 4, 5, 7, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€16.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">King Prawn Masala</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 4, 5, 7, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€14.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biryani Specials -->
+        <div class="menu-category" data-category="biryani">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Biryani Specials</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Biryani</div>
+                        <div class="menu-item-description">Tender pieces of chicken or lamb cooked with basmati rice, mixed with delicate mild spice. Basmati rice is flavoured with saffron, mild oriental spice, garnished with coriander.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€16.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lamb Biryani</div>
+                        <div class="menu-item-description">Tender pieces of lamb cooked with basmati rice & flavoured with saffron, mild oriental spice, garnished with coriander.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€16.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Prawn Biryani</div>
+                        <div class="menu-item-description">Prawn marinated with mild spice, cooked with basmati rice & flavoured with saffron, mild oriental spice, garnished with coriander.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10</div>
+                    </div>
+                    <div class="menu-item-price">€16.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Special Biryani</div>
+                        <div class="menu-item-description">Chicken, lamb & prawn cooked with basmati rice & flavoured with saffron, mild oriental spice, garnished with coriander.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 5, 7, 8 almond powder, 10 - May contain traces of shellfish</div>
+                    </div>
+                    <div class="menu-item-price">€16.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Vegetable Biryani</div>
+                        <div class="menu-item-description">Mix of fresh vegetables cooked with basmati rice, flavoured with saffron, mild oriental spice, garnished with coriander & served with vegetable curry sauce.</div>
+                        <div class="menu-item-allergens">Contains: 7, 8 almond powder</div>
+                    </div>
+                    <div class="menu-item-price">€14.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vegetarian Specials -->
+        <div class="menu-category" data-category="vegetarian">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Vegetarian Specials</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Dal-Taka (€6.50/side)</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Mixed Vegetable Curry</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Aloo Gobi (€6.50/side)</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bombay Aloo (€6.50/side)</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Sag Aloo (€6.50/side)</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Sag Bhajee (€6.50/side)</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Vegetable Korma</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Vegetable Balti</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chana Massala</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€11.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beef Specials -->
+        <div class="menu-category" data-category="beef">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Beef Specials</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bhuna Beef</div>
+                        <div class="menu-item-description">Juicy cubes of beef slow cooked with spring onions, tomatoes & medium thick curry sauce.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Beef Jai Frezi (Not a sweet) <span class="spicy-indicator">🌶️🌶️</span></div>
+                        <div class="menu-item-description">Beef cooked with peppers, onions, tomatoes, green chillies & spices in a very thick curry sauce.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Beef Curry</div>
+                        <div class="menu-item-description">Juicy pieces of beef with fresh ginger, peppers, tomatoes & onions in a special sauce, garnished with coriander.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Zaffran Special Beef Curry <span class="spicy-indicator">🌶️🌶️🌶️🌶️</span></div>
+                        <div class="menu-item-description">Tender cubes of beef with fresh ginger, peppers, tomatoes & onions in a special sauce, garnished with coriander.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 5, 7, 10</div>
+                    </div>
+                    <div class="menu-item-price">€12.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Side Dishes -->
+        <div class="menu-category" data-category="sides">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3 class="category-title">Side Dishes</h3>
+                <div class="category-toggle">
+                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Basmati Pilau Rice</div>
+                    </div>
+                    <div class="menu-item-price">€3.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Egg Fried Rice</div>
+                    </div>
+                    <div class="menu-item-price">€3.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Boiled Rice</div>
+                    </div>
+                    <div class="menu-item-price">€2.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Nan Bread (contains: 1 wheat, 3, 7)</div>
+                    </div>
+                    <div class="menu-item-price">€2.75</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Keema Nan</div>
+                        <div class="menu-item-description">Bread stuffed with spiced meat.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 7</div>
+                    </div>
+                    <div class="menu-item-price">€3.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Garlic Nan (contains: 1 wheat, 3, 7)</div>
+                    </div>
+                    <div class="menu-item-price">€3.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Peshwari Nan</div>
+                        <div class="menu-item-description">Stuffed with almonds & sultanas.</div>
+                        <div class="menu-item-allergens">Contains: 1 wheat, 3, 7, 8</div>
+                    </div>
+                    <div class="menu-item-price">€3.50</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Coriander Nan (contains: 1 wheat, 3, 7)</div>
+                    </div>
+                    <div class="menu-item-price">€3.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chapati (contains: 1 wheat)</div>
+                    </div>
+                    <div class="menu-item-price">€2.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Allergen Notice -->
+        <div class="allergen-notice">
+            <h3>Food Allergens List</h3>
+            <p>All our dishes are made fresh when you order and are ingredients guaranteed.</p>
+            <ul class="allergen-list">
+                <li>1. Cereals containing gluten (Wheat, Rye, Barley, Oats)</li>
+                <li>2. Crustaceans</li>
+                <li>3. Eggs</li>
+                <li>4. Fish</li>
+                <li>5. Peanuts</li>
+                <li>6. Soybeans</li>
+                <li>7. Milk</li>
+                <li>8. Nuts (Almonds, Hazelnuts, Walnuts, Cashews nuts, Pecan nuts, Brazil nuts, Pistachio nuts, Macadamia/Queensland nuts)</li>
+                <li>9. Celery</li>
+                <li>10. Mustard</li>
+                <li>11. Sesame seeds</li>
+                <li>12. Sulphur dioxide and Sulphites</li>
+                <li>13. Lupin</li>
+                <li>14. Molluscs</li>
+            </ul>
+            <p style="margin-top: 1rem; font-style: italic;">€12.95 Limited delivery within specific area. Drivers expenses please mention when ordering. Offers cannot be used in conjunction with any other offers. All prices include VAT. Prices subject to change without notice. Stated Pizza sizes are approximate prior to cooking. All Chicken and Pork products may contain traces of nuts.</p>
+            <p style="margin-top: 1rem;"><strong>Minimum order value for delivery is €12. Cannot carry less than €20.00. Special offers place used in conjunction with any other offer without notice.</strong></p>
+            <p style="margin-top: 0.5rem;"><strong>We use only 100% Prime Irish Beef. All curries are made with the freshest and finest ingredients.</strong></p>
+            <p style="margin-top: 0.5rem;"><em>All Indian main courses come with a choice of only pilau or Boiled Rice, Nan Bread or Chips. Mushroom Rice €1.75, Egg Fried Rice €1.00 extra. Garlic, Cheese, Keema or Peshwari Nan €1.00 extra. €3.00 extra long tray with nan.</em></p>
+            <p style="margin-top: 0.5rem;"><em>Please allow min. 30 mins for collecting take away orders</em></p>
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section class="video-section" id="video">
+        <h2 class="section-title">Experience Zaffran</h2>
+        <div class="video-gallery-wrapper">
+            <button class="gallery-nav prev" onclick="scrollGallery(-1)" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+            </button>
+            <div class="video-gallery" id="videoGallery">
+                <div class="video-card">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/12888249_1080_1920_30fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-card-overlay">
+                        <h4>Authentic Flavors</h4>
+                        <p>Taste the tradition</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/12888289_1080_1920_30fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-card-overlay">
+                        <h4>Fresh Ingredients</h4>
+                        <p>Quality in every dish</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/12888308_1080_1920_30fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-card-overlay">
+                        <h4>Chef's Craft</h4>
+                        <p>Art meets cuisine</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/12888327_1080_1920_30fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-card-overlay">
+                        <h4>Culinary Excellence</h4>
+                        <p>Perfection served</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/13917177_1080_1920_25fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-card-overlay">
+                        <h4>Vibrant Spices</h4>
+                        <p>Colors of India</p>
+                    </div>
+                </div>
+            </div>
+            <button class="gallery-nav next" onclick="scrollGallery(1)" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Featured Video Section -->
+    <section class="featured-video-section">
+        <div class="featured-video-container">
+            <div class="featured-video-content">
+                <h3>Taste the <span>Tradition</span></h3>
+                <p>At Zaffran, we bring you the authentic flavors of India, carefully crafted with traditional recipes passed down through generations. Every dish tells a story of culture, passion, and culinary excellence.</p>
+                <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+            </div>
+            <div class="featured-video-wrapper">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/5834304-uhd_3840_2160_24fps.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening Hours -->
+    <section class="hours-section fade-in" id="hours">
+        <h2 class="section-title">Opening Hours</h2>
+        <div class="hours-grid">
+            <div class="hours-day">
+                <strong>Monday</strong>
+                <span>4:00 PM - 11:00 PM</span>
+            </div>
+            <div class="hours-day">
+                <strong>Tuesday</strong>
+                <span class="closed">CLOSED</span>
+            </div>
+            <div class="hours-day">
+                <strong>Wednesday</strong>
+                <span>4:00 PM - 11:00 PM</span>
+            </div>
+            <div class="hours-day">
+                <strong>Thursday</strong>
+                <span>4:00 PM - 11:00 PM</span>
+            </div>
+            <div class="hours-day">
+                <strong>Friday</strong>
+                <span>4:00 PM - 11:00 PM</span>
+            </div>
+            <div class="hours-day">
+                <strong>Saturday</strong>
+                <span>4:00 PM - 11:00 PM</span>
+            </div>
+            <div class="hours-day">
+                <strong>Sunday</strong>
+                <span>1:00 PM - 10:00 PM</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section fade-in" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:0469738759">046 973 8759</a>
+            </div>
+            <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <p>44 JKL Street<br>Edenderry, Co Offaly</p>
+            </div>
+        </div>
+        <div style="margin-top: 3rem;">
+            <a href="#home" class="btn btn-primary">Back to Top</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Zaffran Restaurant. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Authentic Indian Cuisine | Edenderry, Co Offaly</p>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:0469738759" class="floating-call-btn" aria-label="Call Now">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        fadeInOnScroll(); // Initial check
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Click-to-call tracking (optional)
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('Call button clicked');
+                // You can add analytics tracking here
+            });
+        });
+
+        // Video Gallery Navigation
+        function scrollGallery(direction) {
+            const gallery = document.getElementById('videoGallery');
+            const cardWidth = gallery.querySelector('.video-card').offsetWidth + 32; // card + gap
+            gallery.scrollBy({
+                left: direction * cardWidth,
+                behavior: 'smooth'
+            });
+        }
+
+        // Pause videos when not in viewport for performance
+        const videos = document.querySelectorAll('video');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.25
+        };
+
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play().catch(() => {});
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, observerOptions);
+
+        videos.forEach(video => {
+            videoObserver.observe(video);
+        });
+
+        // Parallax effect for hero video
+        window.addEventListener('scroll', () => {
+            const heroVideo = document.querySelector('.hero-video-bg');
+            if (heroVideo) {
+                const scrolled = window.pageYOffset;
+                heroVideo.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Menu Category Toggle
+        function toggleCategory(header) {
+            header.classList.toggle('collapsed');
+            const menuItems = header.nextElementSibling;
+            menuItems.classList.toggle('collapsed');
+        }
+
+        // Menu Navigation Filter
+        document.querySelectorAll('.menu-nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.menu-nav-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const category = this.dataset.category;
+                const categories = document.querySelectorAll('.menu-category');
+
+                if (category === 'all') {
+                    // Show all categories
+                    categories.forEach(cat => {
+                        cat.style.display = 'block';
+                        cat.querySelector('.category-header').classList.remove('collapsed');
+                        cat.querySelector('.menu-items').classList.remove('collapsed');
+                    });
+                } else {
+                    // Filter to specific category
+                    categories.forEach(cat => {
+                        if (cat.dataset.category === category) {
+                            cat.style.display = 'block';
+                            cat.querySelector('.category-header').classList.remove('collapsed');
+                            cat.querySelector('.menu-items').classList.remove('collapsed');
+                        } else {
+                            cat.style.display = 'none';
+                        }
+                    });
+                }
+
+                // Scroll to menu section
+                document.getElementById('menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // View Toggle (Grid/List)
+        document.querySelectorAll('.view-toggle button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.view-toggle button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const view = this.dataset.view;
+                document.querySelectorAll('.menu-items').forEach(items => {
+                    if (view === 'list') {
+                        items.classList.add('list-view');
+                    } else {
+                        items.classList.remove('list-view');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
