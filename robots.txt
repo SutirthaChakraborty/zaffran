@@ -1,0 +1,53 @@
+# Robots.txt for Zaffran Restaurant - Optimized for Search Engines
+# https://zaffran.ie/
+
+User-agent: *
+Allow: /
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.webp
+Allow: /*.svg
+
+# Priority pages for crawling
+Crawl-delay: 0
+
+# Disallow admin or private areas (if any)
+Disallow: /private/
+Disallow: /admin/
+Disallow: /*.pdf$
+
+# Sitemap location
+Sitemap: https://zaffran.ie/sitemap.xml
+
+# Additional sitemaps
+Sitemap: https://zaffran.ie/sitemap-images.xml
+Sitemap: https://zaffran.ie/sitemap-videos.xml
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
