@@ -1,0 +1,16 @@
+output
+*.pyc
+__pycache__/
+*.txt
+*.pt
+*.json
+*.log
+*.csv
+*.h5
+*.ckpt
+*.zip
+*.tar.gz
+*.egg-info/
+*.py
+*.mp3
+.DS_Store
