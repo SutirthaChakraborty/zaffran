@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>About Zaffran Restaurant - Authentic Indian Cuisine in Edenderry, County Offaly | Our Story</title>
+    <meta name="title" content="About Zaffran Restaurant - Best Indian Restaurant in Edenderry, Ireland">
+    <meta name="description" content="Discover the story behind Zaffran Restaurant, Edenderry's premier Indian dining destination. Family-owned restaurant serving authentic Indian cuisine in County Offaly since 2020. Meet our chefs and learn about our commitment to quality.">
+    <meta name="keywords" content="about Zaffran, Indian restaurant Edenderry history, authentic Indian food Offaly, family restaurant Edenderry, Indian chefs Ireland, traditional Indian cooking, best Indian restaurant County Offaly">
+    <meta name="author" content="Zaffran Restaurant">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Geo Meta Tags -->
+    <meta name="geo.region" content="IE-OY">
+    <meta name="geo.placename" content="Edenderry, County Offaly">
+    <meta name="geo.position" content="53.3442;-7.0497">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sutirthachakraborty.github.io/zaffran/about.html">
+    <meta property="og:title" content="About Zaffran Restaurant - Edenderry's Premier Indian Restaurant">
+    <meta property="og:description" content="Family-owned authentic Indian restaurant in Edenderry, County Offaly. Serving traditional Indian cuisine with passion since 2020.">
+    <meta property="og:image" content="https://sutirthachakraborty.github.io/zaffran/og-about.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sutirthachakraborty.github.io/zaffran/about.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Restaurant",
+        "name": "Zaffran Restaurant",
+        "description": "Family-owned authentic Indian restaurant serving traditional cuisine in Edenderry, County Offaly since 2020",
+        "foundingDate": "2020",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "44 JKL Street",
+          "addressLocality": "Edenderry",
+          "addressRegion": "County Offaly",
+          "postalCode": "R45",
+          "addressCountry": "IE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 53.3442,
+          "longitude": -7.0497
+        },
+        "servesCuisine": ["Indian", "South Asian", "Tandoori", "Curry", "Vegetarian", "Halal"],
+        "priceRange": "€€",
+        "telephone": "+353-46-973-8759",
+        "url": "https://sutirthachakraborty.github.io/zaffran/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* Include base styles from main site */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lora:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --saffron: #e67e22;
+            --saffron-deep: #d35400;
+            --saffron-light: #f39c12;
+            --primary-green: #2d5016;
+            --light-green: #3d6b1f;
+            --accent-gold: #d4a574;
+            --cream: #fdf6e3;
+            --dark-text: #1a1a1a;
+            --light-text: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(45, 80, 22, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            margin-top: 70px;
+        }
+        
+        .about-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .about-hero p {
+            font-size: 1.5rem;
+            color: var(--saffron-light);
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 4rem 0;
+            align-items: center;
+        }
+        
+        .story-section img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .story-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin: 1rem 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            background: white;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            background: var(--dark-text);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .story-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Zaffran</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="about-hero">
+        <div>
+            <h1>Our Story</h1>
+            <p>Bringing Authentic Indian Flavors to Edenderry</p>
+        </div>
+    </section>
+    
+    <div class="about-content">
+        <section class="story-section">
+            <div>
+                <h2>Welcome to Zaffran</h2>
+                <p>Established in 2020, Zaffran Restaurant has become Edenderry's premier destination for authentic Indian cuisine. Located in the heart of County Offaly, we pride ourselves on bringing the rich, diverse flavors of India to the Irish Midlands.</p>
+                <p>Our name, "Zaffran," means saffron in Hindi - the golden spice that represents luxury, flavor, and tradition. Just like this precious ingredient, we believe in offering nothing but the finest quality in every dish we serve.</p>
+                <p>From traditional curries and tandoori specialties to innovative fusion dishes, our menu celebrates the culinary heritage of India while embracing local Irish ingredients and preferences.</p>
+            </div>
+            <div>
+                <!-- Placeholder for restaurant image -->
+                <div style="background: linear-gradient(135deg, #e67e22, #d35400); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Restaurant Image</div>
+            </div>
+        </section>
+        
+        <section class="story-section" style="direction: rtl;">
+            <div style="direction: ltr;">
+                <h2>Our Culinary Team</h2>
+                <p>Our experienced chefs bring decades of combined experience from various regions of India. Trained in traditional cooking methods and armed with family recipes passed down through generations, they create magic in our kitchen every day.</p>
+                <p>We use only the freshest ingredients, authentic spices imported directly from India, and traditional cooking techniques including our clay tandoor oven. Each dish is prepared with care, ensuring that every bite transports you to the streets of Delhi, the beaches of Goa, or the palaces of Rajasthan.</p>
+            </div>
+            <div>
+                <!-- Placeholder for chef image -->
+                <div style="background: linear-gradient(135deg, #2d5016, #3d6b1f); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Chef Team Image</div>
+            </div>
+        </section>
+        
+        <h2 style="text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin: 4rem 0 2rem; color: var(--primary-green);">Our Values</h2>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div style="font-size: 3rem;">🌶️</div>
+                <h3>Authenticity</h3>
+                <p>We stay true to traditional recipes while respecting local tastes. Every dish tells a story of India's rich culinary heritage.</p>
+            </div>
+            
+            <div class="value-card">
+                <div style="font-size: 3rem;">✨</div>
+                <h3>Quality</h3>
+                <p>From sourcing the finest ingredients to meticulous preparation, we never compromise on quality. Your satisfaction is our priority.</p>
+            </div>
+            
+            <div class="value-card">
+                <div style="font-size: 3rem;">🤝</div>
+                <h3>Community</h3>
+                <p>As a family-owned business, we're proud to be part of the Edenderry community. We serve our neighbors with warmth and hospitality.</p>
+            </div>
+            
+            <div class="value-card">
+                <div style="font-size: 3rem;">🌱</div>
+                <h3>Sustainability</h3>
+                <p>We source locally when possible and are committed to sustainable practices that protect our environment for future generations.</p>
+            </div>
+        </div>
+        
+        <section class="story-section">
+            <div>
+                <h2>Serving Edenderry & Beyond</h2>
+                <p>Located in Edenderry, County Offaly, Zaffran Restaurant proudly serves customers from across the Irish Midlands, including:</p>
+                <ul style="font-size: 1.1rem; line-height: 2; margin: 1rem 0;">
+                    <li>Edenderry Town Centre</li>
+                    <li>Tullamore</li>
+                    <li>Portarlington</li>
+                    <li>Rhode</li>
+                    <li>Daingean</li>
+                    <li>Monasterevin</li>
+                    <li>Kildare Town</li>
+                    <li>Clara</li>
+                    <li>Kilbeggan</li>
+                </ul>
+                <p>Whether you're dining in, taking away, or ordering delivery, we're committed to bringing the finest Indian cuisine to your table.</p>
+            </div>
+            <div>
+                <!-- Placeholder for location map -->
+                <div style="background: linear-gradient(135deg, #f39c12, #e67e22); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Service Area Map</div>
+            </div>
+        </section>
+        
+        <div class="cta-section">
+            <h2>Experience Zaffran Today</h2>
+            <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem;">Visit us in Edenderry and discover why we're County Offaly's favorite Indian restaurant</p>
+            <a href="menu.html" class="btn">View Our Menu</a>
+            <a href="contact.html" class="btn" style="margin-left: 1rem;">Book a Table</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Zaffran Restaurant. All rights reserved.</p>
+        <p>44 JKL Street, Edenderry, Co Offaly | Phone: 046 973 8759</p>
+    </footer>
+</body>
+</html>

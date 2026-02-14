@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Zaffran Restaurant Location - Indian Restaurant in Edenderry | Serving County Offaly, Kildare & Surrounding Areas</title>
+    <meta name="description" content="Visit Zaffran Restaurant at 44 JKL Street, Edenderry, County Offaly. We serve authentic Indian cuisine to Edenderry, Tullamore, Portarlington, Kildare, and surrounding areas. Find directions, parking info, and areas we deliver to.">
+    <meta name="keywords" content="Zaffran location, Indian restaurant Edenderry address, restaurants near me Offaly, Indian food delivery Edenderry, Tullamore Indian restaurant, Portarlington takeaway, Kildare Indian food, directions to Zaffran">
+    <meta name="geo.region" content="IE-OY">
+    <meta name="geo.placename" content="Edenderry, County Offaly, Ireland">
+    <meta name="geo.position" content="53.3442;-7.0497">
+    <meta name="ICBM" content="53.3442, -7.0497">
+    
+    <link rel="canonical" href="https://sutirthachakraborty.github.io/zaffran/location.html">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Zaffran Restaurant",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "44 JKL Street",
+        "addressLocality": "Edenderry",
+        "addressRegion": "County Offaly",
+        "postalCode": "R45",
+        "addressCountry": "IE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.3442,
+        "longitude": -7.0497
+      },
+      "telephone": "+353-46-973-8759",
+      "url": "https://sutirthachakraborty.github.io/zaffran/",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Edenderry",
+          "containedIn": {
+            "@type": "AdministrativeArea",
+            "name": "County Offaly"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Tullamore"
+        },
+        {
+          "@type": "City",
+          "name": "Portarlington"
+        },
+        {
+          "@type": "City",
+          "name": "Rhode"
+        },
+        {
+          "@type": "City",
+          "name": "Daingean"
+        }
+      ]
+    }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --saffron: #e67e22;
+            --primary-green: #2d5016;
+            --light-green: #3d6b1f;
+            --accent-gold: #d4a574;
+            --cream: #fdf6e3;
+            --dark-text: #1a1a1a;
+            --light-text: #ffffff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(45, 80, 22, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover { color: var(--accent-gold); }
+        
+        .location-hero {
+            height: 50vh;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            margin-top: 70px;
+        }
+        
+        .location-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .map-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+        }
+        
+        .map-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .map-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+        }
+        
+        .map-wrapper iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .info-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin: 1rem 0;
+        }
+        
+        .areas-served {
+            background: linear-gradient(135deg, var(--saffron), #f39c12);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            color: white;
+            margin: 4rem 0;
+        }
+        
+        .areas-served h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .area-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .area-card:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .area-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .area-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background: var(--dark-text);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Zaffran</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="location-hero">
+        <div>
+            <h1>Find Us</h1>
+            <p style="font-size: 1.5rem; margin-top: 1rem;">44 JKL Street, Edenderry, Co Offaly</p>
+        </div>
+    </section>
+    
+    <div class="content">
+        <div class="map-section">
+            <h2>Visit Us in Edenderry</h2>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2385.123456789!2d-7.0497!3d53.3442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDIwJzM5LjEiTiA3wrAwMic1OC45Ilc!5e0!3m2!1sen!2sie!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=53.3442,-7.0497" target="_blank" style="display: inline-block; padding: 1rem 2rem; background: var(--saffron); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 1rem;">Get Directions</a>
+            </div>
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <div style="font-size: 3rem;">📍</div>
+                <h3>Address</h3>
+                <p>44 JKL Street<br>Edenderry<br>County Offaly<br>R45, Ireland</p>
+            </div>
+            
+            <div class="info-card">
+                <div style="font-size: 3rem;">📞</div>
+                <h3>Phone</h3>
+                <p><a href="tel:+353469738759" style="color: var(--saffron); text-decoration: none;">046 973 8759</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Call for reservations or takeaway orders</p>
+            </div>
+            
+            <div class="info-card">
+                <div style="font-size: 3rem;">🚗</div>
+                <h3>Parking</h3>
+                <p>Free parking available<br>On-street parking nearby<br>Accessible location</p>
+            </div>
+            
+            <div class="info-card">
+                <div style="font-size: 3rem;">🕐</div>
+                <h3>Opening Hours</h3>
+                <p>Mon-Thu: 5:00 PM - 10:30 PM<br>Fri-Sat: 5:00 PM - 11:00 PM<br>Sunday: 4:00 PM - 10:00 PM</p>
+            </div>
+        </div>
+        
+        <div class="areas-served">
+            <h2>Areas We Serve</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Delivering authentic Indian cuisine across County Offaly and surrounding areas</p>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <h3>🏛️ Edenderry</h3>
+                    <p>Town Centre & All Areas</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">0 km • Main Location</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏘️ Rhode</h3>
+                    <p>Village & Surrounding Areas</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">8 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏙️ Tullamore</h3>
+                    <p>Town & Surroundings</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">25 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏡 Portarlington</h3>
+                    <p>Town & Local Areas</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">18 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏘️ Daingean</h3>
+                    <p>Village & Vicinity</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">12 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏰 Monasterevin</h3>
+                    <p>Town & Local Areas</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">20 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏛️ Kildare Town</h3>
+                    <p>Town Centre & Areas</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">30 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏘️ Clara</h3>
+                    <p>Town & Surroundings</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">22 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏡 Kilbeggan</h3>
+                    <p>Village & Local Areas</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">28 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏘️ Rathangan</h3>
+                    <p>Town & Vicinity</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">16 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏡 Allenwood</h3>
+                    <p>Village & Surroundings</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">12 km from Edenderry</p>
+                </div>
+                
+                <div class="area-card">
+                    <h3>🏘️ Clonbullogue</h3>
+                    <p>Village & Local Areas</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">5 km from Edenderry</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">📦 Delivery available to all listed areas • 🥡 Collection available • 🍽️ Dine-in welcome</p>
+        </div>
+        
+        <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); margin: 4rem 0;">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--primary-green); text-align: center; margin-bottom: 2rem;">How to Find Us</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3 style="color: var(--saffron); margin-bottom: 1rem;">🚗 From Dublin</h3>
+                    <p>Take the M4 motorway westbound towards Galway. Exit at Junction 10 for Edenderry. Follow signs to town centre. We're located on JKL Street in the heart of Edenderry.</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--saffron); margin-bottom: 1rem;">🚌 Public Transport</h3>
+                    <p>Regular bus services operate from Dublin to Edenderry. The restaurant is a short walk from the main bus stop in the town centre.</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--saffron); margin-bottom: 1rem;">♿ Accessibility</h3>
+                    <p>Wheelchair accessible entrance. Ground floor seating available. Accessible restroom facilities. Please call ahead if you need any special arrangements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Zaffran Restaurant. All rights reserved.</p>
+        <p>Authentic Indian Cuisine | Edenderry, Co Offaly</p>
+    </footer>
+</body>
+</html>
